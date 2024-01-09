@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,5 +10,10 @@
 <body>
     <h1>hello. This project is a sample web project to test argocd.</h1>
     <h3>version : 1.0</h3>
+    <span>user name : </span> <span th:text="${username}">Username</span>
 </body>
 </html>
+
+<script>
+    document.getElementById('hostname').textContent = window.location.hostname;
+</script>
