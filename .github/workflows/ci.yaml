@@ -34,5 +34,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/dockerhub-repo:${{ github.ref }}
+          tags: user/dockerhub-repo:${{ env.BRANCH_NAME }}
           build-args: BRANCH=${{ env.BRANCH_NAME }}
