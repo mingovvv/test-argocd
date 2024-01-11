@@ -8,10 +8,10 @@ RUN gradle clean build --no-daemon  --stacktrace --info --warning-mode all
 
 # for runtime
 FROM openjdk:17-jdk-slim AS runtime
-ARG SPRING_PROFILES_ACTIVE
-RUN echo "SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}"
+ARG BRANCH
+RUN echo "SPRING_PROFILES_ACTIVE: ${BRANCH}"
 
-ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+ENV SPRING_PROFILES_ACTIVE=${BRANCH}
 
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
