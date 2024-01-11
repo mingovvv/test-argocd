@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "dev", "qa", "release" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Get the branch name
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
+        id: get_branch
+        
+      - name: Build the Docker image
+        uses: actions/github-script@v4
+        with:
+          script: |
+            docker build . --file Dockerfile --tag my-image-name:$(date +%s) --build-arg SPRING_PROFILES_ACTIVE=${{ steps.get_branch.outputs.branch }}
+            
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        
+      - name: Push Docker image to Docker Hub
+        run: docker push my-image-name:$(date +%s)
