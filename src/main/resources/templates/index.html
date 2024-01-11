@@ -10,10 +10,8 @@
 <body>
     <h1>hello. This project is a sample web project to test argocd.</h1>
     <h3>version : 1.1</h3>
-    <span>user name : </span> <span th:text="${username}">Username</span>
+    <span>user : </span> <span th:text="${username}">username</span>
+    <br>
+    <span>env : </span> <span th:text="${profile}">profile</span>
 </body>
 </html>
-
-<script>
-    document.getElementById('hostname').textContent = window.location.hostname;
-</script>
