@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}-{{ .Values.serviceEnv }}
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app.name }}-{{ .Values.serviceEnv }}
+  replicas: {{ .Values.deployment.replicas }}
+  strategy:
+    type: {{ .Values.deployment.update.type }}
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.app.name }}-{{ .Values.serviceEnv }}
+    spec:
+      containers:
+      - name: {{ .Values.deployment.container.name }}-{{ .Values.serviceEnv }}
+        image: {{ .Values.deployment.image.name }}:{{ .Values.deployment.image.tag }}
+        ports:
+        - containerPort: 8080
