@@ -34,5 +34,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: mingovvv/test-web:${{ env.BRANCH_NAME }}-1.0.0
+          tags: mingovvv/test-web:${{ env.BRANCH_NAME }}
           build-args: BRANCH=${{ env.BRANCH_NAME }}

@@ -9,7 +9,8 @@ deployment:
     type: RollingUpdate
   image:
     name: mingovvv/test-web
-    tag: dev-1.0.0
+    tag: dev
+    pullPolicy: Always
   container:
     name: web-demo-container
 
