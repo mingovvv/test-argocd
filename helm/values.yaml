@@ -9,7 +9,7 @@ deployment:
     type: RollingUpdate
   image:
     name: mingovvv/test-web
-    tag: dev
+    tag: dev-1.0.0
   container:
     name: web-demo-container
 
