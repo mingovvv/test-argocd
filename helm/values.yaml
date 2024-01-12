@@ -4,7 +4,7 @@ deployment:
   name: web-demo-deployment
   app:
     name: web-demo
-  replicas: 2
+  replicas: 4
   update:
     type: RollingUpdate
   image:
