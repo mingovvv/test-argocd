@@ -35,15 +35,15 @@ spec:
           httpGet: # 검증 방식
             path: /health
             port: 8080
-          initialDelaySeconds: 5
+          initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 3
           successThreshold: 3
-        livenessProbe: # livenessProbe
-          httpGet: # 검증 방식 : httpGet
-            path: /health
-            port: 8080
-          initialDelaySeconds: 5
-          periodSeconds: 10
-          timeoutSeconds: 3
-          failureThreshold: 3
+{{/*        livenessProbe: # livenessProbe*/}}
+{{/*          httpGet: # 검증 방식 : httpGet*/}}
+{{/*            path: /health*/}}
+{{/*            port: 8080*/}}
+{{/*          initialDelaySeconds: 10*/}}
+{{/*          periodSeconds: 10*/}}
+{{/*          timeoutSeconds: 3*/}}
+{{/*          failureThreshold: 3*/}}
