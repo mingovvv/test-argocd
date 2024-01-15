@@ -16,4 +16,4 @@ spec:
         name: memory
         target:
           type: AverageValue
-          averageUtilization: {{ .Values.HPA.averageUtilization }}
+          averageValue: {{ .Values.HPA.averageUtilization }}

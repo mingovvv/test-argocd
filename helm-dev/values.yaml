@@ -28,5 +28,5 @@ HPA:
   name: web-demo-hpa
   minReplicas : 1
   maxReplicas : 4
-  averageUtilization: 450MI
+  averageUtilization: 450
 
