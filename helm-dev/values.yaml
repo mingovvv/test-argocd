@@ -4,13 +4,13 @@ deployment:
   name: web-demo-deployment
   app:
     name: web-demo
-  replicas: 4
+  replicas: 1
   update:
     type: RollingUpdate
   image:
     name: mingovvv/test-web
     tag: dev
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   container:
     name: web-demo-container
 
@@ -23,3 +23,10 @@ service:
   type: NodePort
   port: 8080
   targetPort: 8080
+
+HPA:
+  name: web-demo-hpa
+  minReplicas : 1
+  maxReplicas : 4
+  averageUtilization: 450MI
+
