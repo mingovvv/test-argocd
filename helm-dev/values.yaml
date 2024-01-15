@@ -10,7 +10,7 @@ deployment:
   image:
     name: mingovvv/test-web
     tag: dev
-    pullPolicy: IfNotPresent
+    pullPolicy: always
   container:
     name: web-demo-container
 
