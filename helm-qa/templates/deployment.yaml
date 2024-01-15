@@ -15,6 +15,8 @@ spec:
       maxUnavailable: 0
   template:
     metadata:
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
       labels:
         app: {{ .Values.deployment.app.name }}-{{ .Values.serviceEnv }}
     spec:
