@@ -1,0 +1,25 @@
+namespace: ns-web-demo
+serviceEnv: dev
+deployment:
+  name: web-demo-deployment
+  app:
+    name: web-demo
+  replicas: 4
+  update:
+    type: RollingUpdate
+  image:
+    name: mingovvv/test-web
+    tag: dev
+    pullPolicy: Always
+  container:
+    name: web-demo-container
+
+service:
+  name: web-demo-service
+  app:
+    name: web-demo
+  label: web-demo
+  selector: web-demo
+  type: NodePort
+  port: 8080
+  targetPort: 8080
